@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Prediction - Analytics Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="prediction.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard">
+
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="logo-text">Analytics</span>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-item">Overview</a>
+                <a href="prediction.html" class="nav-item active">Prediction</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+
+            <header class="header">
+                <h1>Customer Prediction</h1>
+                <p class="subtitle">Predict Customer Cluster using ML Model</p>
+
+                <div class="date-badge">
+                    <span id="current-date"></span>
+                </div>
+            </header>
+
+            <section class="prediction-section">
+
+                <div class="prediction-card">
+
+                    <form id="prediction-form" class="prediction-form">
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+                                <label>Recency</label>
+                                <input type="number" id="recency" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Frequency</label>
+                                <input type="number" id="frequency" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Monetary</label>
+                                <input type="number" id="monetary" required>
+                            </div>
+
+                        </div>
+
+                        <button type="submit" id="predict-btn">
+                            Predict Cluster
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </section>
+
+            <section class="result-section" id="result-section" style="display:none;">
+
+                <div class="result-card">
+
+                    <h3>Prediction Result</h3>
+
+                    <div class="segment-icon" id="segment-icon"></div>
+
+                    <div class="segment-name" id="segment-name"></div>
+
+                    <div class="confidence-bar">
+                        <div class="confidence-fill" id="confidence-fill"></div>
+                    </div>
+
+                    <div id="confidence-value"></div>
+
+                    <div id="segment-description"></div>
+
+                    <ul id="recommendation-list"></ul>
+
+                </div>
+
+            </section>
+
+            <section class="products-section hidden" id="products-section">
+
+                <h4 class="products-title">Recommended Products & Offers</h4>
+                <div class="products-grid" id="products-grid"></div>
+
+            </section>
+
+            <section class="info-section">
+
+                <h3>Customer Clusters</h3>
+
+                <div class="info-grid">
+
+                    <div class="info-card">
+                        <h4>High-value Customers</h4>
+                        <p>Best customers with high spending and loyalty</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h4>Seasonal Customers</h4>
+                        <p>Occasional buyers with potential growth</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h4>Low-engagement Customers</h4>
+                        <p>Inactive or at-risk customers</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="prediction.js"></script>
+
+</body>
+</html>
