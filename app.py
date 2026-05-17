@@ -214,41 +214,22 @@ def get_dashboard_data():
 # ROUTES
 # ============================================================
 
+from flask import Flask, render_template, jsonify
+
+app = Flask(__name__)
+
+
 @app.route('/')
 @app.route('/index.html')
 def index():
     """Serve the main dashboard page."""
-    return send_from_directory('.', 'index.html')
-
-
-@app.route('/style.css')
-def styles():
-    """Serve CSS file."""
-    return send_from_directory('.', 'style.css')
-
-
-@app.route('/script.js')
-def script():
-    """Serve JavaScript file."""
-    return send_from_directory('.', 'script.js')
+    return render_template('index.html')
 
 
 @app.route('/prediction.html')
 def prediction_page():
-    """Serve the prediction page."""
-    return send_from_directory('.', 'prediction.html')
-
-
-@app.route('/prediction.css')
-def prediction_styles():
-    """Serve prediction CSS file."""
-    return send_from_directory('.', 'prediction.css')
-
-
-@app.route('/prediction.js')
-def prediction_script():
-    """Serve prediction JavaScript file."""
-    return send_from_directory('.', 'prediction.js')
+    """Serve prediction page."""
+    return render_template('prediction.html')
 
 
 @app.route('/api/dashboard-data')
@@ -292,7 +273,6 @@ def kpis():
         'avgOrderValue': data['avgOrderValue'],
         'totalTransactions': data['totalTransactions']
     })
-
 
 # ============================================================
 # PREDICTION API
